@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <score bpm="124" beatspermeasure="10">
-     <instrument instrument="Wavetable" waveform="Sine" harmonics="0">
+     <instrument instrument="Wavetable" waveform="Sine" harmonics="0.7 0.1 0.3 0.05 0.25 0.03 0.2 0.02 0.15 0.015 0.1 0.01">
 	<note measure="1" beat="1" duration="0.5" note="C4"/>
 	<note measure="1" beat="1.5" duration="0.5" note="Ab3"/>
 	<note measure="1" beat="2" duration="0.5" note="G3"/>
 	<note measure="1" beat="2.5" duration="0.5" note="C3"/>
-	
+
 	<note measure="1" beat="3" duration="3.5" note="C3"/>
 	<note measure="1" beat="3" duration="3.5" note="C4"/>
 	<note measure="1" beat="3" duration="3.5" note="G4"/>
@@ -347,5 +347,11 @@
      </instrument>
      <instrument instrument="Flanger">
         <note measure="1" beat="3" effectDuration="1000" maxDelayMs="5.0" lfoFrequency="0.25" depth="0.7" feedback="0.5"/>
+     </instrument>
+     <instrument instrument="NoiseGate">
+        <note measure="1" beat="1" effectDuration="3" attack="100" hold="50" release="200" threshold="0.03"/>
+     </instrument>
+     <instrument instrument="Compressor">
+        <note measure="1" beat="3" effectDuration="10" threshold="0.3" ratio="4" attack="100" release="200"/>
      </instrument>
 </score>

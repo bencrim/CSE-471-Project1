@@ -8,6 +8,7 @@
 <p>
     To define the additive synth in the xml, you initialize it as such:<br>
     &lt;instrument instrument="Wavetable" waveform="Sine" harmonics="0.7 0.1 0.3 0.05 0.25 0.03 0.2 0.02 0.15 0.015 0.1 0.01"&gt;<br>
+    <br>
     You can see the artifact from when I first made the Wavetable, but this instrument is in fact an additive synth. The harmonics attribute is where users can define the amplitude of each harmonic they want to add to their sine wave. The fundamental harmonic is not included, since it is assumed to always be 1. The location of each value in the string determines which harmonic it is associated with.
 </p>
 <p>
@@ -18,13 +19,53 @@
     <br>
     Then, you can define the properties of each effect as "notes" under the instrument. For example, the flanger effect defines its notes like this:<br>
     &lt;note measure="1" beat="1" effectDuration="10" maxDelayMs="5.0" lfoFrequency="0.75" depth="0.9" feedback="0.5"/&gt;<br>
+    <br>
     The specifics of each parameter will be covered below, but each effect has its own unique set of parameters that must be set to reasonable values.
 </p>
+
+<h3>Actual score files:</h3>
 <p>
     <strong>The score files used for the recordings can be found on my github <a href="https://github.com/bencrim/CSE-471-Project1">here</a>.</strong> The main musical selection is named "everything.score". The "drone" score files were used to test each effect individually, and the "fight2.score" file was adjusted to create example harmonic variations such as Sawtooth, Square, Triangle, etc. The harmonics used are given below:<br>
+    <br>
     Triangle: 0 1.0 0 0.1111 0 0.04 0 0.0204 0 0.0123 0 0.0083 0 0.0061 0<br>
     Sawtooth: 1.0 0.5 0.3333 0.25 0.2 0.1667 0.1429 0.125 0.1111 0.1 0.0909 0.0833 0.0769 0.0714<br>
     Buzzy: 0.8 0.4 0.6 0.2 0.4 0.1 0.3 0.05 0.2 0.025 0.15 0.0125<br>
     Hollow: 0 0.2 0 0.1 0 0.05 0 0.025 0 0.0125 0 0.00625<br>
     Vocal: 0.7 0.1 0.3 0.05 0.25 0.03 0.2 0.02 0.15 0.015 0.1 0.01
+</p>
+
+<h3>Additive Synth</h3>
+<p>
+    The additive synth I created allows users to specify the amplitude of each harmonic hey may want to add. My implementation satisfies 30/50 of the points available. The instrument gives a sinusoid playback depending on the notes given by the sequencer, it allows for definition of all harmonics, and it has an envelope with attack and release to avoid popping.<br>
+    <br>
+    The additive synth works by setting certain settings at instrument creation, like the sample rate, beats per second, waveform, and harmonics. The waveform is always Sine for the additive synth, but because I tried making a wavetable first, there is the ability to switch the desired waveform.<br>
+    <br>
+    When the additive synth runs Generate(), it first calls Generate() on the waveform, then calls Generate() on the ADSR object to generate the envelope. Finally it takes the frame data from the ADSR object and increments the time. Inside the waveform Generate(), the sine wave is generated based on the desired frequency, then each harmonic is added to the sine wave.
+</p>
+
+<h3>Effects component</h3>
+<p>
+    The effects component I created satisfies 30/50 points. The component successfully passes audio through if no effect is defined in the score, and I have implemented 3 effects. The effects I decided to implement are a noise gate, a compressor, and a flanger. Each effect is owned as an object in the CSynthesizer class. The Synthesizer applies each effect to the total instrument output in <strong>series</strong>. Each effect has the parameters "measure", "beat", and "effectDuration". These specify the starting location and length of the effect. Below I will outline each effect individually.
+</p>
+<h4>Noise Gate Effect</h4>
+<p>
+    This effect is supposed to specify a threshold, where any input below the threshold is cut out of the output. Usually this is added to prevent noise from cables or background noise, but given that the additive synth has little of either, the effect creates an 8-bit sounding note instead. The effect receives the input frames, then processes the given signal to determine if the noise gate should change states. The states available are Closed, Opening, Open, and Releasing. Opening and Releasing are defined by the given attack and release parameters from the score file. The score file for the noise gate takes these parameters:<br>
+    attack: Accepts an integer that specifies how many samples to attack for.<br>
+    hold: Accepts an integer that specifies the minimum number of samples to hold the gate open for.<br>
+    release: Accepts an integer that specifies how many samples to release for.<br>
+    threshold: Accepts a value from 0 to 1 for how high the threshold should be set.<br>
+    <br>
+</p>
+<h4>Compressor Effect</h4>
+<p>
+    This effect also specifies a threshold, but now any input <strong>above</strong> the threshold is reduced by a given ratio where the amount of input above the threshold is divided by the ratio. For example, a ratio of 4 would reduce an input 4 units above the threshold to 1 unit above the threshold. This effect receives the input frames, processes how much the input is above or below the threshold, and changes the gain accordingly. Inputs below the threshold are left untouched, but inputs above the threshold are multiplied by a gain value to reduce them correctly. The score file for the noise gate takes these parameters:<br>
+    attack: Accepts an integer that specifies how many samples to attack for.<br>
+    release: Accepts an integer that specifies how many samples to release for.<br>
+    ratio: Accept an integer that specifies the ratio of input over threshold to output over threshold.<br>
+    threshold: Accepts a value from 0 to 1 for how high the threshold should be set.<br>
+    <br>
+</p>
+<h4>Flanger Effect</h4>
+<p>
+    
 </p>

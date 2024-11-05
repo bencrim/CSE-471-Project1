@@ -1,6 +1,7 @@
 # Project 1 score files
 ## Musical Selection: Everything In Its Right Place - Radiohead (Hand transcribed)
-The score file "everything.score" was used to produce the "Radiohead.wav" file, representing the main submission for this project.
+WAV file: Radiohead.wav/
+Score file: everything.score
 
 ## Additive Synth
 WAV files: Buzzy.wav, Hollow.wav, Sawtooth.wav, Triangle.wav, Vocal.wav\

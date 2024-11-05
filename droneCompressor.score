@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<score bpm="124" beatspermeasure="10">
+     <instrument instrument="Wavetable" waveform="Sine" harmonics="0">
+	<note measure="1" beat="1" duration="5" note="C3"/>
+	<note measure="1" beat="1" duration="5" note="C4"/>
+	<note measure="1" beat="1" duration="5" note="G4"/>
+	<note measure="1" beat="1" duration="5" note="E4"/>
+	<note measure="1" beat="6" duration="5" note="C3"/>
+	<note measure="1" beat="6" duration="5" note="C4"/>
+	<note measure="1" beat="6" duration="5" note="G4"/>
+	<note measure="1" beat="6" duration="5" note="E4"/>
+	<note measure="2" beat="1" duration="5" note="C3"/>
+	<note measure="2" beat="1" duration="5" note="C4"/>
+	<note measure="2" beat="1" duration="5" note="G4"/>
+	<note measure="2" beat="1" duration="5" note="E4"/>
+	<note measure="2" beat="6" duration="5" note="C3"/>
+	<note measure="2" beat="6" duration="5" note="C4"/>
+	<note measure="2" beat="6" duration="5" note="G4"/>
+	<note measure="2" beat="6" duration="5" note="E4"/>
+     </instrument>
+     <instrument instrument="Compressor">
+        <note measure="1" beat="6" effectDuration="5" threshold="0.3" ratio="4" attack="100" release="200"/>
+	<note measure="2" beat="1" effectDuration="5" threshold="0.1" ratio="4" attack="100" release="200"/>
+     </instrument>
+</score>

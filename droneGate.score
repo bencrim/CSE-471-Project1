@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<score bpm="124" beatspermeasure="10">
+     <instrument instrument="Wavetable" waveform="Square" harmonics="0">
+	<note measure="1" beat="1" duration="1" note="F3"/>
+	<note measure="1" beat="2" duration="1" note="G3"/>
+	<note measure="1" beat="3" duration="1" note="A3"/>
+	<note measure="1" beat="4" duration="1" note="Bb3"/>
+	<note measure="1" beat="5" duration="1" note="C4"/>
+	<note measure="1" beat="6" duration="1" note="D4"/>
+	<note measure="1" beat="7" duration="1" note="E4"/>
+	<note measure="1" beat="8" duration="1" note="F4"/>
+	<note measure="1" beat="9" duration="1" note="E4"/>
+	<note measure="1" beat="10" duration="1" note="D4"/>
+	<note measure="2" beat="1" duration="1" note="C4"/>
+	<note measure="2" beat="2" duration="1" note="Bb3"/>
+	<note measure="2" beat="3" duration="1" note="A3"/>
+	<note measure="2" beat="4" duration="1" note="G3"/>
+	<note measure="2" beat="5" duration="2" note="F3"/>
+     </instrument>
+     <instrument instrument="NoiseGate">
+        <note measure="1" beat="9" effectDuration="7" attack="100" hold="50" release="200" threshold="0.03"/>
+     </instrument>
+</score>

@@ -17,5 +17,14 @@
     &lt;instrument instrument="Flanger"&gt;<br>
     <br>
     Then, you can define the properties of each effect as "notes" under the instrument. For example, the flanger effect defines its notes like this:<br>
-    &lt;note measure="1" beat="1" effectDuration="10" maxDelayMs="5.0" lfoFrequency="0.75" depth="0.9" feedback="0.5"/&gt;
+    &lt;note measure="1" beat="1" effectDuration="10" maxDelayMs="5.0" lfoFrequency="0.75" depth="0.9" feedback="0.5"/&gt;<br>
+    The specifics of each parameter will be covered below, but each effect has its own unique set of parameters that must be set to reasonable values.
+</p>
+<p>
+    The score files used for the recordings can be found on my github <a href="https://github.com/bencrim/CSE-471-Project1">here</a>. The main musical selection is named "everything.score". The "drone" score files were used to test each effect individually, and the "fight2.score" file was adjusted to create example harmonic variations such as Sawtooth, Square, Triangle, etc. The harmonics used are given below:<br>
+    Triangle: 0 1.0 0 0.1111 0 0.04 0 0.0204 0 0.0123 0 0.0083 0 0.0061 0<br>
+    Sawtooth: 1.0 0.5 0.3333 0.25 0.2 0.1667 0.1429 0.125 0.1111 0.1 0.0909 0.0833 0.0769 0.0714<br>
+    Buzzy: 0.8 0.4 0.6 0.2 0.4 0.1 0.3 0.05 0.2 0.025 0.15 0.0125<br>
+    Hollow: 0 0.2 0 0.1 0 0.05 0 0.025 0 0.0125 0 0.00625<br>
+    Vocal: 0.7 0.1 0.3 0.05 0.25 0.03 0.2 0.02 0.15 0.015 0.1 0.01
 </p>

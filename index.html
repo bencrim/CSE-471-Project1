@@ -50,6 +50,7 @@
 <h4>Noise Gate Effect</h4>
 <p>
     This effect is supposed to specify a threshold, where any input below the threshold is cut out of the output. Usually this is added to prevent noise from cables or background noise, but given that the additive synth has little of either, the effect creates an 8-bit sounding note instead. The effect receives the input frames, then processes the given signal to determine if the noise gate should change states. The states available are Closed, Opening, Open, and Releasing. Opening and Releasing are defined by the given attack and release parameters from the score file. The score file for the noise gate takes these parameters:<br>
+    <br>
     attack: Accepts an integer that specifies how many samples to attack for.<br>
     hold: Accepts an integer that specifies the minimum number of samples to hold the gate open for.<br>
     release: Accepts an integer that specifies how many samples to release for.<br>
@@ -58,6 +59,7 @@
 <h4>Compressor Effect</h4>
 <p>
     This effect also specifies a threshold, but now any input <strong>above</strong> the threshold is reduced by a given ratio where the amount of input above the threshold is divided by the ratio. For example, a ratio of 4 would reduce an input 4 units above the threshold to 1 unit above the threshold. This effect receives the input frames, processes how much the input is above or below the threshold, and changes the gain accordingly. Inputs below the threshold are left untouched, but inputs above the threshold are multiplied by a gain value to reduce them correctly. The score file for the compressor takes these parameters:<br>
+    <br>
     attack: Accepts an integer that specifies how many samples to attack for.<br>
     release: Accepts an integer that specifies how many samples to release for.<br>
     ratio: Accept an integer that specifies the ratio of input over threshold to output over threshold.<br>
@@ -66,6 +68,7 @@
 <h4>Flanger Effect</h4>
 <p>
     This effect produces a sweeping sound within notes by providing the effect with multiple parameters. This effect relies on past samples, so it has a buffer of samples stored in the object. Using an LFO, the delay time is modulated to create a periodic changing delay. This effect receives the input frames, then calculates where along the LFO it currently is. From there it computes what sample to use from the delay buffer, does some interpolation, and adds the delayed sample times the feedback to the input. The score file for the flanger takes these parameters:<br>
+    <br>
     maxDelayMs: The maximum delay time in milliseconds. Flangers usually use short delays, typically between 1-10 milliseconds.<br>
     lfoFrequency: The frequency of the low-frequency oscillator (LFO) that controls the sweeping effect. Typical values range from 0.1 Hz to 1 Hz.<br>
     depth: A value from 0 to 1 that controls the depth of the flanging effect.<br>

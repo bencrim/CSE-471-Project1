@@ -1,6 +1,6 @@
 # Project 1 score files
 ## Musical Selection: Everything In Its Right Place - Radiohead (Hand transcribed)
-WAV file: Radiohead.wav/
+WAV file: Radiohead.wav\
 Score file: everything.score
 
 ## Additive Synth
